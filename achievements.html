@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Arsenal | Ashley Bothello</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* --- PAGE SPECIFIC STYLES --- */
+        .arsenal-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem 8rem 2rem;
+        }
+
+        /* FLEXBOX SETTINGS */
+        .chapter {
+            position: relative;
+            padding: 6rem 0;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            
+            /* ANIMATION STARTING STATE */
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        /* REVEAL STATE (Triggered by JS) */
+        .chapter.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .chapter-num {
+            position: absolute;
+            top: 2rem;
+            left: -4rem;
+            font-family: 'Syne', sans-serif;
+            font-size: 10rem;
+            font-weight: 800;
+            color: rgba(255, 255, 255, 0.03);
+            z-index: -1;
+            line-height: 1;
+        }
+
+        .chapter-content {
+            flex: 1;
+            position: relative;
+            z-index: 2;
+        }
+
+        .chapter h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: 3rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .chapter-role {
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            display: inline-block;
+            border: 1px solid var(--gold);
+            padding: 5px 15px;
+        }
+
+        .chapter p {
+            color: #aaa;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .spec-list {
+            list-style: none;
+            border-left: 2px solid #333;
+            padding-left: 1.5rem;
+        }
+
+        .spec-list li {
+            margin-bottom: 1rem;
+            color: #ccc;
+            font-size: 1rem;
+        }
+
+        .spec-list strong { color: #fff; }
+
+        .chapter-img {
+            flex: 1;
+            min-width: 300px;
+            height: 400px;
+            object-fit: cover;
+            border: 1px solid #333;
+            filter: grayscale(100%);
+            transition: 0.5s;
+        }
+
+        .chapter:hover .chapter-img {
+            filter: grayscale(0%);
+            border-color: var(--gold);
+        }
+
+        /* --- KAASH HOVER EFFECT --- */
+        .ventures-box {
+            border: 1px solid var(--gold); 
+            padding: 5rem 2rem; 
+            margin-top: 4rem; 
+            color: var(--gold);
+            transition: 0.4s ease-in-out;
+            cursor: pointer;
+        }
+
+        .ventures-box h2, .ventures-box p, .ventures-box a {
+            transition: 0.4s ease-in-out;
+            color: var(--gold);
+        }
+        
+        /* When Hovered */
+        .ventures-box:hover {
+            background-color: var(--gold);
+            transform: scale(1.02);
+        }
+
+        .ventures-box:hover h2, 
+        .ventures-box:hover p, 
+        .ventures-box:hover a {
+            color: #000 !important;
+        }
+        
+        .ventures-box:hover a {
+            border-color: #000 !important;
+        }
+
+        /* MOBILE FIX */
+        @media (max-width: 768px) {
+            .chapter { flex-direction: column-reverse !important; text-align: left; padding: 4rem 0; gap: 2rem; }
+            .chapter-num { font-size: 6rem; top: 0; left: 0; }
+            .chapter-img { width: 100%; height: 250px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cursor" id="cursor"></div>
+
+    <nav>
+        <div class="logo">AB.</div>
+        <div class="nav-links">
+            <a href="index.html">Identity</a>
+            <a href="achievements.html" style="color:var(--gold);">Arsenal</a>
+            <a href="ventures.html">Ventures</a>
+        </div>
+    </nav>
+
+    <header style="height: 60vh; display: flex; flex-direction: column; justify-content: center; padding-left: 10%; border-bottom: 1px solid #222;">
+        <p style="color: var(--gold); letter-spacing: 3px; text-transform: uppercase;">The Capabilities</p>
+        <h1 style="font-family: 'Syne'; font-size: clamp(4rem, 10vw, 8rem); color: #fff; line-height: 0.9;">
+            MY <br> ARSENAL
+        </h1>
+    </header>
+
+    <div class="arsenal-container">
+
+        <div class="chapter reveal">
+            <div class="chapter-num">01</div>
+            <div class="chapter-content">
+                <h2>Engineering</h2>
+                <span class="chapter-role">VLSI & AI/ML</span>
+                <p>
+                    Connecting the raw power of hardware with the intelligence of software. 
+                    My honours research focuses on bridging these two worlds.
+                </p>
+                <ul class="spec-list">
+                    <li><strong>Languages:</strong> C, C++, Python, HTML/CSS.</li>
+                    <li><strong>Current Focus:</strong> Java & Database Connectivity.</li>
+                    <li><strong>Specialty:</strong> VLSI System Architecture.</li>
+                </ul>
+            </div>
+            <img src="code.jpg" class="chapter-img" alt="Code">
+        </div>
+
+        <div class="chapter reveal">
+            <div class="chapter-num">02</div>
+            <img src="voice.jpg" class="chapter-img" alt="Voice Artist">
+            <div class="chapter-content">
+                <h2>The Voice</h2>
+                <span class="chapter-role">Dubbing Artist</span>
+                <p>
+                    A professional voiceover artist at Studio Sound Adda. I specialize in 
+                    emotional modulation and script adaptation.
+                </p>
+                <ul class="spec-list">
+                    <li><strong>Dubbed:</strong> Korean film "The Attorney" (Hindi).</li>
+                    <li><strong>Range:</strong> English & Hindi Character Voices.</li>
+                    <li><strong>Skills:</strong> Script Adaptation & Modulation.</li>
+                </ul>
+            </div>
+            
+        </div>
+
+        <div class="chapter reveal">
+            <div class="chapter-num">03</div>
+            <div class="chapter-content">
+                <h2>Leadership</h2>
+                <span class="chapter-role">Marketing Strategy</span>
+                <p>
+                    Driving engagement and resources for large-scale tech events.
+                    Currently serving as Marketing Associate for GDSC FRCRCE.
+                </p>
+                <ul class="spec-list">
+                    <li><strong>Acquisition:</strong> Secured major food & beverage sponsors.</li>
+                    <li><strong>Strategy:</strong> Designed outreach plans for flagship events.</li>
+                </ul>
+            </div>
+            <img src="gdsc.jpg" class="chapter-img" alt="GDSC">
+        </div>
+
+        <div class="chapter reveal">
+            <div class="chapter-num">04</div>
+            <img src="mic.jpg" class="chapter-img" alt="Microphone">
+            <div class="chapter-content">
+                <h2>The Stage</h2>
+                <span class="chapter-role">Public Speaking</span>
+                <p>
+                    Commanding a room with wit and presence. Whether it's improvisational 
+                    anchoring or scripted storytelling.
+                </p>
+                <ul class="spec-list">
+                    <li><strong>Josh Talks:</strong> Scripting & Motivational Storytelling.</li>
+                    <li><strong>Emcee:</strong> Hosted inter-college events.</li>
+                </ul>
+            </div>
+            
+        </div>
+
+        <div class="chapter reveal">
+            <div class="chapter-num">05</div>
+            
+            
+            <div class="chapter-content">
+                <h2>Visuals</h2>
+                <span class="chapter-role">Cinematography</span>
+                <p>
+                    Freelance video editor and cinematographer (2020-2022). 
+                    Focusing on the rhythm and pacing of a visual story.
+                </p>
+                <ul class="spec-list">
+                    <li><strong>Projects:</strong> National-level competition edits.</li>
+                    <li><strong>Tool:</strong> Adobe Premiere Pro.</li>
+                </ul>
+            </div>
+            <img src="film.jpg" class="chapter-img" alt="Film">
+        </div>
+
+        <div class="chapter reveal">
+            <div class="chapter-num">06</div>
+            <img src="art.jpg" class="chapter-img" alt="Art">
+            
+            <div class="chapter-content">
+                <h2>Soul</h2>
+                <span class="chapter-role">Multi-Disciplinary</span>
+                <p>
+                    The skills that keep me grounded and creative outside of the digital world.
+                </p>
+                <ul class="spec-list">
+                    <li><strong>Music:</strong> Cajón, Drums, Guitar.</li>
+                    <li><strong>Sports:</strong> Professional Swimmer (Award Winner).</li>
+                    <li><strong>Acting:</strong> Mono-acting competition winner.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="chapter reveal" style="border:none; display: block; text-align: center;">
+            <div class="ventures-box" onclick="window.location.href='ventures.html'">
+                <h2 style="font-size: 4rem; margin-bottom: 1rem;">07. VENTURES</h2>
+                <p style="margin-bottom: 2rem; font-family: 'Space Grotesk'; font-size: 1.2rem;">
+                    My Entrepreneurial Journey with Kaash.
+                </p>
+                <a href="ventures.html" style="text-decoration: none; border-bottom: 2px solid var(--gold); font-size: 1.5rem; font-weight: bold; padding-bottom: 5px;">
+                    EXPLORE KAASH &rarr;
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const cursor = document.getElementById("cursor");
+        document.addEventListener("mousemove", (e) => {
+            cursor.style.left = e.clientX + "px";
+            cursor.style.top = e.clientY + "px";
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

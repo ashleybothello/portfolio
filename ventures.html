@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ventures | Kaash</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="cursor" id="cursor"></div>
+
+    <nav>
+        <div class="logo">AB.</div>
+        <div class="nav-links">
+            <a href="index.html">Identity</a>
+            <a href="achievements.html">Arsenal</a>
+            <a href="ventures.html" style="color:var(--gold);">Ventures</a>
+        </div>
+    </nav>
+
+    <section style="height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+        <div style="position: absolute; top:0; left:0; width:100%; height:100%; z-index:-1; opacity:0.3;">
+            <img src="kaash.jpg" style="width:100%; height:100%; object-fit:cover; filter: grayscale(100%);">
+        </div>
+        
+        <div style="text-align: center; padding: 2rem;">
+            <p style="letter-spacing: 5px; color: var(--gold); text-transform: uppercase; margin-bottom: 1rem;">The Brand</p>
+            <h1 style="font-family: 'Syne'; font-size: clamp(5rem, 15vw, 12rem); color: #fff; line-height: 0.8;">KAASH</h1>
+            <p style="font-family: 'Space Grotesk'; color: #ccc; margin-top: 2rem; font-size: 1.2rem;">
+                Design • Culture • Individuality
+            </p>
+        </div>
+    </section>
+
+    <section class="vision-section">
+        <div class="vision-text">
+            <h2>EARTHY <span style="color:var(--gold)">ZEN</span></h2>
+            <p>
+                Kaash is more than clothing; it is a mindset. We blend modern streetwear silhouettes with an 
+                "Earthy Zen" color palette—tones of clay, sand, and moss.
+            </p>
+            <p>
+                A bridge between fast-paced city life and grounded spirituality. 
+                Experience the collection online.
+            </p>
+            
+            <div style="margin-top: 2rem; display: flex; gap: 1rem;">
+                <div class="tag" style="border-color: #fff; color: #fff;">Streetwear</div>
+                <div class="tag" style="border-color: #fff; color: #fff;">Faith</div>
+                <div class="tag" style="border-color: #fff; color: #fff;">Optimism</div>
+            </div>
+        </div>
+
+        <div class="vision-img" style="border-color: #333;">
+            <img src="kaash.jpg" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+    </section>
+
+    <section style="padding: 8rem 4rem; text-align: center; border-top: 1px solid #222; background: linear-gradient(to top, #080808, #020202);">
+        <h2 style="font-family: 'Syne'; font-size: 2rem; color: #fff; margin-bottom: 2rem;">THE STORE IS <span style="color:var(--gold)">LIVE</span></h2>
+        
+        <a href="https://thekaashstore.com" target="_blank" style="text-decoration: none;">
+            <div style="
+                border: 1px solid var(--gold); 
+                padding: 2rem 4rem; 
+                display: inline-block; 
+                transition: 0.4s;
+                position: relative;
+                overflow: hidden;
+                background: transparent;
+            " onmouseover="this.style.background='var(--gold)'; this.querySelector('h3').style.color='#000'" onmouseout="this.style.background='transparent'; this.querySelector('h3').style.color='#fff'">
+                
+                <h3 style="font-family: 'Syne'; font-size: clamp(2rem, 5vw, 4rem); color: #fff; margin: 0; transition: 0.3s;">
+                    VISIT WEBSITE &nearr;
+                </h3>
+            </div>
+        </a>
+
+        <p style="color: #666; margin-top: 2rem; font-family: 'Space Grotesk';">
+            Global Shipping Available.
+        </p>
+    </section>
+
+    <script>
+        const cursor = document.getElementById("cursor");
+        document.addEventListener("mousemove", (e) => {
+            cursor.style.left = e.clientX + "px";
+            cursor.style.top = e.clientY + "px";
+        });
+    </script>
+</body>
+</html>

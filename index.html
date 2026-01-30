@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashley Bothello | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="cursor" id="cursor"></div>
+
+    <nav>
+        <div class="logo">AB.</div>
+        <div class="nav-links">
+            <a href="index.html">Identity</a>
+            <a href="achievements.html">Arsenal</a>
+            <a href="ventures.html">Ventures</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="glitch-name">ASHLEY</div>
+        <div class="sub-hero">
+            <p>VIBRANT • CURIOUS • MULTI-TALENTED</p>
+            <p style="margin-top: 1rem; color: var(--gold);">
+                Blending Art, Tech & Performance.
+            </p>
+        </div>
+    </section>
+
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <div class="ticker-item">VLSI RESEARCH ///</div>
+            <div class="ticker-item">VOICEOVER ARTIST ///</div>
+            <div class="ticker-item">KAASH BRAND ///</div>
+            <div class="ticker-item">PUBLIC SPEAKER ///</div>
+            <div class="ticker-item">CINEMATOGRAPHY ///</div>
+            <div class="ticker-item">WEB DEV ///</div>
+        </div>
+    </div>
+
+    <section class="vision-section">
+        <div class="vision-text">
+            <h2>THE <span style="color:var(--gold)">ALCHEMIST</span><br>MINDSET</h2>
+            <p>
+                I don't just write code; I craft experiences. My work exists at the intersection of 
+                <strong>Silicon & Soul</strong>.
+            </p>
+            <p>
+                From researching <strong>VLSI architectures</strong> to dubbing emotional scenes in 
+                <strong>Korean cinema</strong>, I believe in the power of "Range." 
+                Currently building the <strong>Kaash</strong> brand to bring an Earthy Zen aesthetic to streetwear.
+            </p>
+            <br>
+            <p style="color:var(--gold); border-left: 2px solid var(--gold); padding-left: 1rem;">
+                "A team player and leader at heart, always exploring, learning, and creating."
+            </p>
+        </div>
+        
+        <div class="vision-img">
+            <img src="profile.jpg" alt="Ashley Profile" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+    </section>
+
+    <section class="skills-section">
+        <h2 style="font-family:'Syne'; font-size:3rem; text-align:right; margin-bottom: 2rem;">TECH <span style="color:var(--gold)">STACK</span></h2>
+        
+        <div class="skills-grid">
+            <div class="skill-box">
+                <h4>C / C++</h4>
+                <span>Core Logic</span>
+            </div>
+            <div class="skill-box">
+                <h4>Python</h4>
+                <span>AI & Scripts</span>
+            </div>
+            <div class="skill-box">
+                <h4>VLSI</h4>
+                <span>Hardware</span>
+            </div>
+            <div class="skill-box">
+                <h4>Premiere</h4>
+                <span>Editing</span>
+            </div>
+            <div class="skill-box">
+                <h4>Java</h4>
+                <span>Learning</span>
+            </div>
+            <div class="skill-box">
+                <h4>AI/ML</h4>
+                <span>Learning</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="timeline">
+        <h2>ACADEMIC <span style="color:var(--gold)">JOURNEY</span></h2>
+
+        <div class="checkpoint">
+            <h3>Fr. Conceição Rodrigues College of Engineering (Fr. CRCE)</h3>
+            <span>CURRENT • MUMBAI</span>
+            <p>B.Tech in Computer Engineering with Honours in Research in VLSI.</p>
+        </div>
+
+        <div class="checkpoint">
+            <h3>Pioneer College of Arts, Commerce & Science</h3>
+            <span>12TH STANDARD</span>
+            <p>Higher Secondary Education.</p>
+        </div>
+
+        <div class="checkpoint">
+            <h3>Ashok Academy</h3>
+            <span>5TH - 10TH STANDARD</span>
+            <p>Lokhandwala, Mumbai.</p>
+        </div>
+
+        <div class="checkpoint">
+            <h3>Bharatiya Vidya Bhavan</h3>
+            <span>LKG - 4TH STANDARD</span>
+            <p>Kuwait. The foundation years.</p>
+        </div>
+    </section>
+
+    <footer class="big-footer">
+        <p style="color:#888; margin-bottom:1rem;">HAVE AN IDEA?</p>
+        <a href="mailto:ashleybothello2006@gmail.com">
+            <h2>LET'S TALK</h2>
+        </a>
+
+        <div class="footer-links">
+            <a href="#">LinkedIn</a>
+            <a href="#">Instagram</a>
+            <a href="#">GitHub</a>
+            <a href="achievements.html">Arsenal</a>
+        </div>
+
+        <p style="color:#444; font-size:0.8rem;">
+            © 2026 ASHLEY BOTHELLO. MUMBAI, INDIA.
+        </p>
+    </footer>
+
+    <script>
+        const cursor = document.getElementById("cursor");
+        document.addEventListener("mousemove", (e) => {
+            cursor.style.left = e.clientX + "px";
+            cursor.style.top = e.clientY + "px";
+        });
+    </script>
+</body>
+</html>

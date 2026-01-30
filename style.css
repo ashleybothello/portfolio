@@ -1,0 +1,318 @@
+/* --- IMPORTS --- */
+/* Importing futuristic and elegant fonts */
+@import url('https://fonts.googleapis.com/css2?family=Italiana&family=Space+Grotesk:wght@300;400;700&family=Syne:wght@400;800&display=swap');
+
+:root {
+    --bg: #020202;
+    --gold: #FFD000;
+    --gold-dim: #9C7C00;
+    --text: #E0E0E0;
+    --glass: rgba(25, 25, 25, 0.6);
+    --border: 1px solid rgba(255, 208, 0, 0.15);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; cursor: none; }
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Space Grotesk', sans-serif;
+    overflow-x: hidden;
+}
+
+/* --- CURSOR --- */
+.cursor {
+    width: 15px; height: 15px;
+    background: var(--gold);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: difference;
+    transition: transform 0.1s;
+}
+
+/* --- NAV --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 3rem;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    background: linear-gradient(to bottom, #020202 0%, transparent 100%);
+}
+
+.logo { font-family: 'Syne', sans-serif; font-weight: 800; color: var(--gold); font-size: 1.5rem; }
+.nav-links a { margin-left: 2rem; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; color: #fff; }
+.nav-links a:hover { color: var(--gold); text-decoration: line-through; }
+
+/* --- HERO SECTION --- */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+/* THE GLITCH NAME ANIMATION */
+.glitch-name {
+    font-size: clamp(4rem, 15vw, 12rem);
+    font-weight: 800;
+    line-height: 0.8;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 2px #fff;
+    position: relative;
+    animation: fontShifter 3s infinite steps(1); 
+}
+
+.glitch-name::before {
+    content: "ASHLEY";
+    position: absolute;
+    top: 0; left: 0;
+    color: var(--gold);
+    -webkit-text-stroke: 0;
+    opacity: 0.5;
+    transform: translate(4px, 4px);
+    z-index: -1;
+}
+
+@keyframes fontShifter {
+    0% { font-family: 'Syne', sans-serif; -webkit-text-stroke: 2px #fff; }
+    33% { font-family: 'Italiana', serif; -webkit-text-stroke: 1px var(--gold); }
+    66% { font-family: 'Courier New', monospace; -webkit-text-stroke: 2px #fff; }
+}
+
+.sub-hero {
+    margin-top: 2rem;
+    max-width: 600px;
+    font-size: 1.1rem;
+    color: #888;
+    line-height: 1.6;
+}
+
+/* --- SCROLLING TICKER --- */
+.ticker-wrap {
+    width: 100%;
+    overflow: hidden;
+    background: var(--gold);
+    padding: 1rem 0;
+    margin: 4rem 0;
+    transform: rotate(-2deg);
+}
+
+.ticker {
+    display: flex;
+    animation: ticker 20s linear infinite;
+}
+
+.ticker-item {
+    font-family: 'Syne', sans-serif;
+    font-size: 3rem;
+    color: #000;
+    font-weight: 800;
+    white-space: nowrap;
+    margin-right: 4rem;
+    text-transform: uppercase;
+}
+
+@keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+
+/* --- TIMELINE --- */
+.timeline { padding: 4rem; border-top: 1px solid #222; }
+.timeline h2 { font-family: 'Syne'; font-size: 3rem; margin-bottom: 3rem; color: #fff; }
+
+.checkpoint {
+    border-left: 2px solid #333;
+    padding-left: 2rem;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.checkpoint::before {
+    content: '';
+    width: 15px; height: 15px;
+    background: #000;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    position: absolute;
+    left: -9px; top: 0;
+    transition: 0.3s;
+}
+
+.checkpoint:hover::before { background: var(--gold); box-shadow: 0 0 20px var(--gold); }
+
+.checkpoint h3 { font-size: 1.5rem; color: #fff; }
+.checkpoint span { color: var(--gold); font-family: 'Courier New'; font-size: 0.9rem; display: block; margin: 0.5rem 0; }
+
+/* --- BENTO GRID (ACHIEVEMENTS) --- */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem 4rem;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.card {
+    background: var(--glass);
+    border: var(--border);
+    padding: 2.5rem;
+    border-radius: 0;
+    transition: 0.4s;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+    background: rgba(255, 208, 0, 0.05);
+}
+
+.card h2 { font-family: 'Syne'; font-size: 2rem; margin-bottom: 1rem; color: #fff; }
+.card p { color: #aaa; font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem; }
+.card ul { list-style: none; }
+.card li { margin-bottom: 0.5rem; color: #ddd; font-size: 0.9rem; display: flex; align-items: center; }
+.card li::before { content: '•'; color: var(--gold); margin-right: 10px; font-size: 1.5rem; }
+
+.tag {
+    display: inline-block;
+    padding: 5px 15px;
+    border: 1px solid #444;
+    color: #888;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    margin-right: 5px;
+    margin-top: 10px;
+}
+
+/* Card Sizes */
+.wide { grid-column: span 2; }
+@media (max-width: 900px) { .wide { grid-column: span 1; } .glitch-name { font-size: 4rem; } }
+
+/* --- NEW SECTION: THE VISION (About) --- */
+.vision-section {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 6rem 4rem;
+    align-items: center;
+    gap: 4rem;
+    background: #080808; /* Slightly lighter black */
+}
+
+.vision-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.vision-text h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+    line-height: 1;
+    color: #fff;
+}
+
+.vision-text p {
+    color: #aaa;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.vision-img {
+    flex: 1;
+    min-width: 300px;
+    height: 500px;
+    border: 1px solid var(--gold);
+    position: relative;
+}
+
+/* This creates a "solid" block if you don't have an image yet */
+.vision-placeholder {
+    width: 100%; height: 100%;
+    background: repeating-linear-gradient(
+        45deg,
+        #111,
+        #111 10px,
+        #222 10px,
+        #222 20px
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-family: 'Courier New';
+}
+
+/* --- NEW SECTION: SKILL MATRIX --- */
+.skills-section {
+    padding: 6rem 4rem;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+.skill-box {
+    border: 1px solid #333;
+    padding: 2rem;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.skill-box:hover {
+    background: var(--gold);
+    color: #000;
+    transform: translateY(-5px);
+}
+
+.skill-box h4 { font-size: 1.2rem; margin-bottom: 0.5rem; font-family: 'Syne'; }
+.skill-box span { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+
+/* --- NEW SECTION: MASSIVE FOOTER --- */
+.big-footer {
+    padding: 6rem 4rem 2rem 4rem;
+    border-top: 1px solid #333;
+    text-align: center;
+}
+
+.big-footer h2 {
+    font-size: clamp(3rem, 10vw, 8rem);
+    font-family: 'Syne';
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 1px #555;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.big-footer h2:hover {
+    color: var(--gold);
+    -webkit-text-stroke: 0px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.footer-links a {
+    font-size: 1.2rem;
+    color: #fff;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 5px;
+}
